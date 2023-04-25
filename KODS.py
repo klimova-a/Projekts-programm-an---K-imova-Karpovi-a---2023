@@ -34,8 +34,8 @@ cenam2 = mc[ind]
 cena = kostīmaCena(augums,cenam2)
 print(cena)
     
-ps=["bumba","aplis", "vāles", "lente"] #priekšmeti un to stāvoklis
-mc=[220, 350, 420, 550] #attiecīgas cenas, izmainīt, lai printētu cenas par prieksmetiem
+ps=[["bumba", "jauna", "lietota"] , ["aplis", "jauns", "lietots"] , ["vāles", "jauna", "lietota"] , ["lente", "jauna", "lietota"]] #priekšmeti un to stāvoklis
+mc=[[90,50], [40,20], [80,40], [20,8]] #attiecīgas cenas, izmainīt, lai printētu cenas par prieksmetiem
 
 print("pieejamie priekšmeti:")
 for i in range (len(ps)):
