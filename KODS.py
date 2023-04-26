@@ -5,8 +5,8 @@ def kostīmaCena(a,b):
     return c
 
 sum=0
-#print("Sveiki! �� programma pal�dz�s Jums uzskait�t izdevumus m�kslas vingro�anas sacens�b�m, balstoties uz datiem, ko J�s iev�d�siet")
-ms=[["poliesters", 220], ["spandeks", 350], ["bifleks", 420], ["kokvilna", 550] #materiāli un to stāvoklis
+print("Sveiki! �� programma pal�dz�s Jums uzskait�t izdevumus m�kslas vingro�anas sacens�b�m, balstoties uz datiem, ko J�s iev�d�siet")
+ms=[["poliesters", 20], ["spandeks", 50], ["bifleks", 70], ["kokvilna", 85] #materiāli un to cena par vienu kvadratmetru
     
 print("pieejamie materi�li:")
 for i in range (len(ms)):
@@ -25,12 +25,12 @@ while(True):
     if augums>0: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
         break
     else:
-        print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
+        print("Jusu ievaditais cipars neder, ludzu ievadiet vēlreiz")
         continue
 cena = kostīmaCena(augums,ms[ind][1])
-print(cena)
+print("Kostīms maksā", cena, "euro")
     
-ps=[["bumba", 90,50] , ["aplis", 40,20] , ["vāles", 80,40] , ["lente", 20,8]] #priekšmeti un to stāvoklis
+ps=[["bumba", 90,50] , ["aplis", 40,20] , ["vāles", 80,40] , ["lente", 20,8]] #priekšmeti un to stāvoklis 
 print("pieejamie priekšmeti:")
 for i in range (len(ps)):
     print(i+1, " - ", ps[i][0])   
@@ -52,7 +52,7 @@ while(True):
         print("Jusu ievaditais cipars neatbilst stāvoklim, ludzu ievadiet vēlreiz")
         continue
     
-print(ps[ind][cip]+ kostīmaCena(augums,ms[ind][1]))
+print("Tagad jūsu izdevumi ir", ps[ind][cip]+ kostīmaCena(augums,ms[ind][1]))
     
 while(True):
     ind3=int(input("ievadiet naudas summu pārējiem izdevumiem, mazākā vērtīva - 20 eiro, lielākā - 120 eiro - ")) #ind ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
