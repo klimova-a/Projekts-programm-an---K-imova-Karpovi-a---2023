@@ -6,7 +6,6 @@ def kostīmaCena(a,b):
     return c
 
 sum=0
-count=0
 #print("Sveiki! �� programma pal�dz�s Jums uzskait�t izdevumus m�kslas vingro�anas sacens�b�m, balstoties uz datiem, ko J�s iev�d�siet")
 ms=["poliesters","spandeks", "bifleks", "kokvilna"] #materiāli un to stāvoklis
 mc=[220, 350, 420, 550] #attiecīgas cenas, izmainīt, lai printētu cenas par materiāla m2
