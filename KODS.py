@@ -1,22 +1,20 @@
 from math import*
 #from random import randint
 def kostīmaCena(a,b):
-    d = a*0.50/100 #50 ir procenti no cilvēka auguma, daļa, ko pārklās kostīms
-    c = d*b
+    c = a/100*b*0.5 #50 ir procenti no cilvēka auguma, daļa, ko pārklās kostīms
     return c
 
 sum=0
 #print("Sveiki! �� programma pal�dz�s Jums uzskait�t izdevumus m�kslas vingro�anas sacens�b�m, balstoties uz datiem, ko J�s iev�d�siet")
-ms=["poliesters","spandeks", "bifleks", "kokvilna"] #materiāli un to stāvoklis
-mc=[220, 350, 420, 550] #attiecīgas cenas, izmainīt, lai printētu cenas par materiāla m2
-
+ms=[["poliesters", 220], ["spandeks", 350], ["bifleks", 420], ["kokvilna", 550] #materiāli un to stāvoklis
+    
 print("pieejamie materi�li:")
 for i in range (len(ms)):
-    print(i+1,ms[i])
+    print(i+1,ms[i][0])
 
 while(True):
     ind=int(input("ievadiet vēlāmā materiālā attiecīgu ciparu - "))-1 #ind ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
-    if ind>=0 and ind<len(ms)+1: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
+    if ind>=0 and ind<len(ms): # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
         break
     else:
         print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
@@ -29,26 +27,57 @@ while(True):
     else:
         print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
         continue
-cenam2 = mc[ind]
-cena = kostīmaCena(augums,cenam2)
+cena = kostīmaCena(augums,ms[ind][1])
 print(cena)
     
-ps=[["bumba", "jauna", "lietota"] , ["aplis", "jauns", "lietots"] , ["vāles", "jauna", "lietota"] , ["lente", "jauna", "lietota"]] #priekšmeti un to stāvoklis
-mc=[[90,50], [40,20], [80,40], [20,8]] #attiecīgas cenas, izmainīt, lai printētu cenas par prieksmetiem
-
+ps=[["bumba", 90,50] , ["aplis", 40,20] , ["vāles", 80,40] , ["lente", 20,8]] #priekšmeti un to stāvoklis
 print("pieejamie priekšmeti:")
 for i in range (len(ps)):
-    print(i[ms]+1,ps[i])   
+    print(i+1, " - ", ps[i][0])   
 
     
 while(True):
-        ind=int(input("ievadiet vēlāmā priekšmeta attiecīgu ciparu - "))-1 #ind ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
-        if ind>=0 and ind<len(ps)+1: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
+        ind2=int(input("ievadiet vēlāmā priekšmeta attiecīgu ciparu - "))-1 #ind2 ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
+        if ind2>=0 and ind2<len(ps): # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
             break
         else:
             print("Jusu ievaditais cipars neatbilst priekšmetam, ludzu ievadiet vēlreiz")
             continue
-        
+print("ievadiet priekšmeta stāvokli:\n1-jauns\n2-lietots")
+while(True):
+    cip=(int(input("ievadiet stāvokļa ciparu - "))) 
+    if cip==1 or cip==2: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
+        break
+    else:
+        print("Jusu ievaditais cipars neatbilst stāvoklim, ludzu ievadiet vēlreiz")
+        continue
+    
+print(ps[ind][cip]+ kostīmaCena(augums,ms[ind][1]))
+    
+while(True):
+    ind3=int(input("ievadiet naudas summu pārējiem izdevumiem, mazākā vērtīva - 20 eiro, lielākā - 120 eiro - ")) #ind ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
+    if ind3>=20 and ind3<=120: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
+        break
+    else:
+        print("Jusu ievaditā vērtība ir kļūdaina, ludzu ievadiet vēlreiz")
+        continue
+
+sum=ps[ind][cip] + kostīmaCena(augums,ms[ind][1]) + ind3
+print("Braukšana uz sacensībām izmaksās", sum, "eiro")
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     #while(True):
         #augums=(int(input("ievadiet augumu cm - "))) 
         #if augums>0: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
