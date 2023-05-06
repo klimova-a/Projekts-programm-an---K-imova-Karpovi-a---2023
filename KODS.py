@@ -1,10 +1,10 @@
 from math import*
 def kostīmaCena(a,b):
-    c = a/100*b*0.5 #50 ir procenti no cilvēka auguma, daļa, ko pārklās kostīms
+    c = a/100*b*0.5 #50 ir procenti no cilvēka auguma, ķermeņa daļa, ko pārklās kostīms
     return c
 sum=0
 print("Sveiki! Šī programma palīdzēs Jums uzskaitīt izdevumus mākslas vingrošanas sacensībām, balstoties uz datiem, ko Jūs ievadīsiet")
-ms=[["poliesters", 20], ["spandeks", 50], ["bifleks", 70], ["kokvilna", 85] #materiāli un cena par materiala vienu kvadratmetru    
+ms=[["poliesters", 20], ["spandeks", 50], ["bifleks", 70], ["kokvilna", 85] #materiāli un cena par materiāla vienu kvadratmetru    
 print("pieejamie materiāli:")
 for i in range (len(ms)):
     print(i+1,ms[i][0])
@@ -13,7 +13,7 @@ while(True):
     if ind>=0 and ind<len(ms): #do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
         break
     else:
-        print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
+        print("Jūsu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
         continue  
 while(True):
     augums=(int(input("ievadiet augumu cm - "))) 
@@ -34,7 +34,7 @@ while(True):
         if ind2>=0 and ind2<len(ps): # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
             break
         else:
-            print("Jusu ievaditais cipars neatbilst priekšmetam, ludzu ievadiet vēlreiz")
+            print("Jūsu ievaditais cipars neatbilst priekšmetam, ludzu ievadiet vēlreiz")
             continue
 print("ievadiet priekšmeta stāvokli: 1 - jauns 2 - lietots")
 while(True):
@@ -45,7 +45,7 @@ while(True):
         print("Jusu ievaditais cipars neatbilst stāvoklim, ludzu ievadiet vēlreiz")
         continue   
 while(True):
-    ind3=int(input("ievadiet naudas summu pārējiem izdevumiem, mazākā vērtīva - 20 eiro, lielākā - 120 eiro - ")) 
+    ind3=int(input("ievadiet naudas summu pārējiem izdevumiem, mazākā vērtība - 20 eiro, lielākā - 120 eiro - ")) 
     if ind3>=20 and ind3<=120: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
         break
     else:
