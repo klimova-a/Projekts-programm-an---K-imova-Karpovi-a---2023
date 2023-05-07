@@ -1,55 +1,62 @@
 from math import*
-def kostīmaCena(a,b):
-    c = a/100*b*0.5 #50 ir procenti no cilvēka auguma, ķermeņa daļa, ko pārklās kostīms
+def kostimaCena(a,b):
+    d = a*0.50/100 #50 ir procenti no cilvēka auguma, daļa, ko pārklās kostīms
+    c = d*b
     return c
+
 sum=0
-print("Sveiki! Šī programma palīdzēs Jums uzskaitīt izdevumus mākslas vingrošanas sacensībām, balstoties uz datiem, ko Jūs ievadīsiet")
-ms=[["poliesters", 20], ["spandeks", 50], ["bifleks", 70], ["kokvilna", 85] #materiāli un cena par materiāla vienu kvadratmetru    
-print("pieejamie materiāli:")
+count=0
+#print("Sveiki! �� programma pal�dz�s Jums uzskait�t izdevumus m�kslas vingro�anas sacens�b�m, balstoties uz datiem, ko J�s iev�d�siet")
+ms=["poliesters","spandeks", "bifleks", "kokvilna"] #materiāli un to stāvoklis
+mc=[220, 350, 420, 550] #attiecīgas cenas, izmainīt, lai printētu cenas par materiāla m2
+
+print("pieejamie materi�li:")
 for i in range (len(ms)):
-    print(i+1,ms[i][0])
+    print(i+1,ms[i])
+
 while(True):
-    ind=int(input("ievadiet vēlāmā materiālā attiecīgu ciparu - "))-1 #1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
-    if ind>=0 and ind<len(ms): #do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
+    ind=int(input("ievadiet vēlāmā materiālā attiecīgu ciparu - "))-1 #ind ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
+    if ind>=0 and ind<len(ms)+1: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
         break
     else:
-        print("Jūsu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
-        continue  
+        print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
+        continue
+    
 while(True):
     augums=(int(input("ievadiet augumu cm - "))) 
     if augums>0: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
         break
     else:
-        print("Jusu ievaditais cipars neder, ludzu ievadiet vēlreiz")
+        print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
         continue
-cena = kostīmaCena(augums,ms[ind][1])
-print("Kostīms maksā", cena, "euro")
+cenam2 = mc[ind]
+cena = kostimaCena(augums,cenam2)
+print(cena)
     
-ps=[["bumba", 90,50] , ["aplis", 40,20] , ["vāles", 80,40] , ["lente", 20,8]] #priekšmeti un cenas par jauniem/lietotiem priekšmetiem
+ps=["bumba","aplis", "vāles", "lente"] #materiāli un to stāvoklis
+mc=[220, 350, 420, 550] #attiecīgas cenas, izmainīt, lai printētu cenas par prieksmetiem
+
 print("pieejamie priekšmeti:")
 for i in range (len(ps)):
-    print(i+1, " - ", ps[i][0])       
+    print(i+1,ps[i])   
+
+    
 while(True):
-        ind2=int(input("ievadiet vēlāmā priekšmeta attiecīgu ciparu - "))-1 #ind2 ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
-        if ind2>=0 and ind2<len(ps): # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
+        ind=int(input("ievadiet vēlāmā priekšmeta attiecīgu ciparu - "))-1 #ind ir indekss ; 1 ir jāatņem, lai uzskaitītu vajadzīgo elementu, nevis nākamo, jo sarakstā numurējās no 0
+        if ind>=0 and ind<len(ms)+1: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
             break
         else:
-            print("Jūsu ievaditais cipars neatbilst priekšmetam, ludzu ievadiet vēlreiz")
+            print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
             continue
-print("ievadiet priekšmeta stāvokli: 1 - jauns 2 - lietots")
-while(True):
-    cip=(int(input("ievadiet stāvokļa ciparu - "))) 
-    if cip==1 or cip==2: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
-        break
-    else:
-        print("Jusu ievaditais cipars neatbilst stāvoklim, ludzu ievadiet vēlreiz")
-        continue   
-while(True):
-    ind3=int(input("ievadiet naudas summu pārējiem izdevumiem, mazākā vērtība - 20 eiro, lielākā - 120 eiro - ")) 
-    if ind3>=20 and ind3<=120: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
-        break
-    else:
-        print("Jusu ievaditā vērtība ir kļūdaina, ludzu ievadiet vēlreiz")
-        continue
-sum=ps[ind][cip] + kostīmaCena(augums, ms[ind][1]) + ind3
-print("Braukšana uz sacensībām izmaksās", sum, "eiro")
+        
+    while(True):
+        augums=(int(input("ievadiet augumu cm - "))) 
+        if augums>0: # do while ir vajadzīgs lai ja būs kļūda lietotājs varētu ievadīt vēlreiz
+            break
+        else:
+            print("Jusu ievaditais cipars neatbilst materialam, ludzu ievadiet vēlreiz")
+            continue
+    cenam2 = mc[ind]
+    cena = kostimaCena(augums,cenam2)
+    print(cena)
+    
